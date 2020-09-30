@@ -2,7 +2,7 @@
 
 Converte celsius em fahrenheit e vice versa.
 
-## Pré-requisitos
+## :computer: Pré-requisitos
 
 - [Node.js](https://nodejs.org/en/)
 
