@@ -1,0 +1,8 @@
+node_modules/
+test/
+.github/
+*.md
+*.yml
+.editorconfig
+.gitignore
+LICENSE
