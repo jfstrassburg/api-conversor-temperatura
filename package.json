@@ -1,0 +1,32 @@
+{
+  "name": "api-conversor-temperatura",
+  "version": "1.0.0",
+  "description": "Converte celsius em fahrenheit e vice versa.",
+  "main": "index.js",
+  "directories": {
+    "bin": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscojsc/api-conversor-temperatura.git"
+  },
+  "keywords": [
+    "conversor",
+    "temperatura",
+    "celsius",
+    "fahrenheit"
+  ],
+  "author": "Francisco Chaves",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/franciscojsc/api-conversor-temperatura/issues"
+  },
+  "homepage": "https://github.com/franciscojsc/api-conversor-temperatura#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
