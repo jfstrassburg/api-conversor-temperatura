@@ -72,4 +72,51 @@ describe('Temperature Converter', () => {
         });
     });
   });
+
+  describe('/GET:value Convert celsius to fahrenheit', () => {
+    it('Should return status 400 when the value other than number', (done) => {
+      chai
+        .request(url)
+        .get('/celsius/fc/fahrenheit')
+        .set('content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          should.equal(err, null);
+          res.status.should.be.equal(400);
+          done();
+        });
+    });
+
+    it('Status 200 must be returned and the converted value equal to 89.60', (done) => {
+      chai
+        .request(url)
+        .get('/celsius/32/fahrenheit')
+        .set('content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          should.equal(err, null);
+          res.status.should.be.equal(200);
+          res.should.be.json;
+          res.body.should.have.property('fahrenheit');
+          res.body.fahrenheit.should.equal('89.60');
+          done();
+        });
+    });
+
+    it('Status 200 must be returned and the converted value equal to 149.00', (done) => {
+      chai
+        .request(url)
+        .get('/celsius/65/fahrenheit')
+        .set('content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          should.equal(err, null);
+          res.status.should.be.equal(200);
+          res.should.be.json;
+          res.body.should.have.property('fahrenheit');
+          res.body.fahrenheit.should.equal('149.00');
+          done();
+        });
+    });
+  });
 });

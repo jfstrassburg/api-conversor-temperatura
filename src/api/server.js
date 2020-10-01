@@ -18,4 +18,17 @@ app.get('/fahrenheit/:value/celsius', (req, res) => {
   }
 });
 
+app.get('/celsius/:value/fahrenheit', (req, res) => {
+  try {
+    const { value } = req.params;
+    if (isNaN(value)) {
+      return res.status(400).send();
+    }
+    const fahrenheit = ((value * 9) / 5 + 32).toFixed(2);
+    res.status(200).json({ fahrenheit });
+  } catch (e) {
+    return res.status(500).send();
+  }
+});
+
 module.exports = app;
