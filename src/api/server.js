@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const routerConverter = require('./routes/converter.routes');
+
+app.use(cors());
 
 routerConverter(app);
 
