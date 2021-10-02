@@ -36,7 +36,8 @@ npm start
 
 Acesse o aplicativo em [http://localhost:3001](http://localhost:3001).
 
-
+Documentação da API em [http://localhost:3001/api-docs/](http://localhost:3001/api-docs/).
 
 ## :memo: Licença
+
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
