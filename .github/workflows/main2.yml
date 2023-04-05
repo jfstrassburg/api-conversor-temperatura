@@ -7,7 +7,9 @@ on:
   pull_request:
     branches: [master]
 
-steps:
+jobs:
+  build:
+    steps:
       - uses: actions/checkout@v2
         
       - name: Autenticação no Docker
