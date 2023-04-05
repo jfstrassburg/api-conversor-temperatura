@@ -20,5 +20,8 @@ jobs:
           login-server: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GH_PACKAGES_TOKEN }}
+          
+       - run:
+          docker build -t ghcr.io/${{ github.actor }}/api-conversor-temperatura:latest -f Dockerfile
 
      
