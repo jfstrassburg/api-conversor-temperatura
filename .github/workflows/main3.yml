@@ -21,7 +21,6 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v4.0.0
         with:
-          file: ./Dockerfile
           push: true
           tags: |
             strassburgjuliano/api-conversor-temperatura:${{github.run.number}}
