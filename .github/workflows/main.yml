@@ -1,17 +1,28 @@
-name: CI-CD
+name: CI
 
 on:
+  workflow_dispatch:
   push:
-    branches: ["main"]
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        
-      - name: Autenticação no Docker
-        uses: docker/login-action@v2.1.0
-        with:  
-          username: ${{secrets.DOCKERHUB_USER}}
-          password: ${{secrets.DOCKERHUB_PWD}}
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_PACKAGES_TOKEN }}
+
+      - run: |
+          docker build -t ghcr.io/${{ github.actor }}/api-conversor-temperatura:latest -f Dockerfile .
+          docker tag ghcr.io/${{ github.actor }}/api-conversor-temperatura:latest ghcr.io/${{ github.actor }}/api-conversor-temperatura:${{ github.sha }}
+      - run: |
+          docker push ghcr.io/${{ github.actor }}/api-conversor-temperatura:latest
+          docker push ghcr.io/${{ github.actor }}/api-conversor-temperatura:${{ github.sha }}
