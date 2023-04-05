@@ -21,9 +21,9 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v4.0.0
         with:
-          context: ./
-          file: ./Dockerfile
+          #context: ./
+          #file: ./Dockerfile
           push: true
-          tags: |
-            jfstrassburg/api-conversor-temperatura:${{github.run.number}}
-            jfstrassburg/api-conversor-temperatura:Latest
+          #tags: |
+            #jfstrassburg/api-conversor-temperatura:${{github.run.number}}
+            #jfstrassburg/api-conversor-temperatura:Latest
