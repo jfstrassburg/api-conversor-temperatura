@@ -25,5 +25,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            version:${{github.run.number}}
-            Version:Latest
+            jfstrassburg/api-conversor-temperatura:${{github.run.number}}
+            jfstrassburg/api-conversor-temperatura:Latest
